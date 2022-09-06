@@ -1,5 +1,8 @@
 import decawave_ble
 import logging
+import json
+import time
+import tenacity
 
 myformat = "%(asctime)s.%(msecs)03d %(levelname)s:\t%(message)s"
 logging.basicConfig(format=myformat,
@@ -13,9 +16,8 @@ devices = decawave_ble.scan_for_decawave_devices()
 logging.info('Found {} Decawave devices'.format(len(devices)))
 device_names = list(devices.keys())
 for key, value in devices.items():
-
+    '''
     print(key, value.__dict__)
-
     decawave_peripheral = decawave_ble.get_decawave_peripheral(value)
     print(decawave_peripheral)
 
@@ -35,3 +37,19 @@ for key, value in devices.items():
     network_node_service = decawave_ble.get_decawave_network_node_service_from_peripheral(decawave_peripheral)
     logging.info('Network Node Service')
     print(network_node_service)
+'''
+
+    if key == "DW5293":
+        decawave_peripheral = decawave_ble.get_decawave_peripheral(value)
+        break
+
+while True:
+    try:
+        location_data = decawave_ble.get_location_data_from_peripheral(decawave_peripheral)
+        json_dump = json.dumps(location_data["position_data"], indent=2)
+        print(json_dump)
+    except tenacity.RetryError as retry_err:
+        print("Disconnected: Fetch Peripheral")
+        decawave_peripheral = decawave_ble.get_decawave_peripheral(value)
+    except Exception as e:
+        print("Other Exception: ", e)
