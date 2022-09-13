@@ -24,6 +24,6 @@ Caveat: sudo rights are required, as scanning of BLE devices requires root right
 #### Contact
 
 Ralf Antonius Timmermann, Email: rtimmermann@astro.uni-bonn.de,
-Toma Badescu, Email: blakut@gmail.com,
+Toma Badescu, Email: toma@astro.uni-bonn.de,
 
 Argelander Institute for Astronomy (AIfA), University Bonn, Germany.
