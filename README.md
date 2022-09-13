@@ -5,7 +5,7 @@
 In the following project we describe a PoC with Decawave DWB1001-development boards for 
 Lego-ALMA at AIfA, University Bonn. The underlying idea is to measure the location of mobile antennas
 to demonstrate the functionality of an astronomical [Radio-Interferometer](
-https://astro.uni-bonn.de/en/research/mm-submm-astronomy/projects-1/alma/lego-alma).
+https://astro.uni-bonn.de/en/research/mm-submm-astronomy/projects-1/alma/lego-alma) (in German only).
 
 Inspired by an article [Precise Realtime Indoor Localization With Raspberry Pi And Ultra-Wideband Technology](
 https://medium.com/@newforestberlin/precise-realtime-indoor-localization-with-raspberry-pi-and-ultra-wideband-technology-decawave-191e4e2daa8c)
@@ -23,7 +23,7 @@ Caveat: sudo rights are required, as scanning of BLE devices requires root right
 
 #### Contact
 
-Ralf Antonius Timmermann, Email: rtimmermann@astro.uni-bonn.de,
-Toma Badescu, Email: toma@astro.uni-bonn.de,
+Ralf Antonius Timmermann, email: rtimmermann@astro.uni-bonn.de,
+Toma Badescu, email: toma@astro.uni-bonn.de,
 
 Argelander Institute for Astronomy (AIfA), University Bonn, Germany.
