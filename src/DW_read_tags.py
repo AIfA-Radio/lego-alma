@@ -11,9 +11,7 @@ logging.basicConfig(format=myformat,
 logging.getLogger().setLevel(logging.INFO)
 
 
-def main():
-    logging.info('Scanning for Decawave devices')
-    devices = decawave_ble.scan_for_decawave_devices()
+def check_total_number_devices(devices):
     number_devices = len(devices)
     logging.info(
         'Found No Decawave devices: Exiting ... nothing to track' if number_devices == 0 else
@@ -22,9 +20,37 @@ def main():
     if len(devices) == 0:
         exit(1)
 
+
+def check_total_number_anchors(devices_anchor):
+    number_anchors = len(devices_anchor)
+    logging.info(
+        'Found less than 3 Anchors: Exiting ...' if number_anchors < 3 else
+        'Found {0} Decawave Anchor{1}'.format(number_anchors, 's' if number_anchors != 1 else '')
+    )
+    if number_anchors < 3:
+        exit(1)
+
+
+def check_total_number_tags(devices_tag):
+    number_tags = len(devices_tag)
+    logging.info(
+        'Found No Decawave Tag: Exiting ... nothing to track' if number_tags == 0 else
+        'Found {0} Decawave Tag{1}'.format(number_tags, 's' if number_tags != 1 else '')
+    )
+    if number_tags == 0:
+        exit(1)
+
+
+def main():
+    logging.info('Scanning for Decawave devices')
+    devices = decawave_ble.scan_for_decawave_devices()
+    check_total_number_devices(devices=devices)
+
+    # splitting the devices into anchors and tags
+    # peripherals_xxx comprise {<deviceID>: <current peripheral>} that needs to be updated after a connection was lost
     devices_anchor = dict()
-    peripherals_anchor = dict()
     devices_tag = dict()
+    peripherals_anchor = dict()
     peripherals_tag = dict()
 
     for key, value in devices.items():
@@ -37,26 +63,16 @@ def main():
             devices_anchor[key] = value
             peripherals_anchor[key] = decawave_peripheral
 
-    number_anchors = len(devices_anchor)
-    logging.info(
-        'Found less than 3 Anchors: Exiting ...' if number_anchors < 3 else
-        'Found {0} Decawave Anchor{1}'.format(number_anchors, 's' if number_anchors != 1 else '')
-    )
-    if number_anchors < 3:
-        exit(1)
-
+    # anchors
+    check_total_number_anchors(devices_anchor=devices_anchor)
+    # and print their positions
     for key, decawave_peripheral in peripherals_anchor.items():
         location_data = decawave_ble.get_location_data_from_peripheral(decawave_peripheral)
         print({key: location_data["position_data"]})
+    # tags
+    check_total_number_tags(devices_tag=devices_tag)
 
-    number_tags = len(devices_tag)
-    logging.info(
-        'Found No Decawave Tag: Exiting ... nothing to track' if number_tags == 0 else
-        'Found {0} Decawave Tag{1}'.format(number_tags, 's' if number_tags != 1 else '')
-    )
-    if number_tags == 0:
-        exit(1)
-
+    # loop over all tags
     while True:
         for key, decawave_peripheral in peripherals_tag.items():
             try:
