@@ -85,7 +85,7 @@ def main():
             except Exception as e:
                 print("Other Exception: ", e)
 
-        time.sleep(.1)
+        time.sleep(.5)
 
 
 if __name__ == "__main__":
