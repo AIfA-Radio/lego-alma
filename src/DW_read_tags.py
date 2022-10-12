@@ -1,6 +1,5 @@
 import decawave_ble
 import logging
-import json
 import time
 import tenacity
 
@@ -83,7 +82,7 @@ def main():
                 decawave_peripheral = decawave_ble.get_decawave_peripheral(devices_tag[key])
                 peripherals_tag[key] = decawave_peripheral
             except Exception as e:
-                print("Other Exception: ", e)
+                print("Other Exception: {}".format(e))
 
         time.sleep(.5)
 
