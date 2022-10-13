@@ -83,6 +83,8 @@ For the time being we invoke
 
 Caveat: sudo rights are required, as scanning of BLE devices requires root on your client.
 
+Note: This site - including manual & code - is still under construction. 
+
 #### Contact
 
 Ralf Antonius Timmermann, email: rtimmermann@astro.uni-bonn.de &
