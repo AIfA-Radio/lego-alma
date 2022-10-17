@@ -63,34 +63,34 @@ assign it to the lego-alma network.
 
 <table>
   <tr>
-     <td style="text-align: center;">Initial Screen</td>
-     <td style="text-align: center;">Network & Devices</td>
-     <td style="text-align: center;">Auto Positioning</td>
+     <th style="text-align: center;">Initial Screen</th>
+     <th style="text-align: center;">Network & Devices</th>
+     <th style="text-align: center;">Auto Positioning</th>
   </tr>
   <tr>
-    <td><img src="./images/Screenshot_start_screen.jpg" width=270 height=480></td>
-    <td><img src="./images/Screenshot_unassigned_devices.jpg" width=270 height=480></td>
-    <td><img src="./images/Screenshot_auto_positioning.jpg" width=270 height=480></td>
+    <td><img src="./images/Screenshot_start_screen.jpg" width=250 height=480></td>
+    <td><img src="./images/Screenshot_unassigned_devices.jpg" width=250 height=480></td>
+    <td><img src="./images/Screenshot_auto_positioning.jpg" width=250 height=480></td>
   </tr>
 </table>
 <table>
 <tr>
-     <td style="text-align: center;">Network Details</td>
-     <td style="text-align: center;">Anchor Settings</td>
-     <td style="text-align: center;">Tag Settings</td>
+     <th style="text-align: center;">Network Details</th>
+     <th style="text-align: center;">Anchor Settings</th>
+     <th style="text-align: center;">Tag Settings</th>
   </tr>
   <tr>
-    <td><img src="./images/Screenshot_network.jpg" width=270 height=480></td>
-    <td><img src="./images/Screenshot_anchor.jpg" width=270 height=480></td>
-    <td><img src="./images/Screenshot_tag.jpg" width=270 height=480></td>
+    <td><img src="./images/Screenshot_network.jpg" width=250 height=480></td>
+    <td><img src="./images/Screenshot_anchor.jpg" width=250 height=480></td>
+    <td><img src="./images/Screenshot_tag.jpg" width=250 height=480></td>
   </tr>
 </table>
 <table>
   <tr>
-     <td style="text-align: center;">Grid</td>
+     <th style="text-align: center;">Grid</th>
   </tr>
   <tr>
-    <td><img src="./images/Screenshot_grid.jpg" width=270 height=480></td>
+    <td><img src="./images/Screenshot_grid.jpg" width=250 height=480></td>
   </tr>
 </table>
 
