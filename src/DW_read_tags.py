@@ -55,12 +55,17 @@ def main():
     for key, value in devices.items():
         decawave_peripheral = decawave_ble.get_decawave_peripheral(value)
         operation_mode_data = decawave_ble.get_operation_mode_data_from_peripheral(decawave_peripheral)
-        if operation_mode_data['device_type_name'] == 'Tag':
-            devices_tag[key] = value
-            peripherals_tag[key] = decawave_peripheral
-        elif operation_mode_data['device_type_name'] == 'Anchor':
-            devices_anchor[key] = value
-            peripherals_anchor[key] = decawave_peripheral
+        network_id = decawave_ble.get_network_id_from_peripheral(decawave_peripheral)
+        # ToDo: having a fixed network ID in the code is not a good idea!
+        if network_id == 0x66ce:
+            if operation_mode_data['device_type_name'] == 'Tag':
+                devices_tag[key] = value
+                peripherals_tag[key] = decawave_peripheral
+            elif operation_mode_data['device_type_name'] == 'Anchor':
+                devices_anchor[key] = value
+                peripherals_anchor[key] = decawave_peripheral
+        else:
+            logging.warning("Decawave devices found from network ID: {}, hence, being disregarded".format(network_id))
 
     # anchors
     check_total_number_anchors(devices_anchor=devices_anchor)
