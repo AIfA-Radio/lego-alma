@@ -40,7 +40,8 @@ click “Program Device”.
 #### Define anchors and tags via Decawave Android App
 
 The entire UWB network will be configured utilizing the [Android SDK](
-https://github.com/AIfA-Radio/lego-alma/blob/main/app/DRTLS_Manager_R2.apk). 
+https://github.com/AIfA-Radio/lego-alma/blob/main/app/DRTLS_Manager_R2.apk). Alternatively, you may download it 
+from [here](https://www.decawave.com/wp-content/uploads/2019/03/DRTLS_Manager_R2.apk).
 
 Security Advice: 
 * Some messengers (i.e. Signal) may prevent installation packages 
@@ -127,7 +128,7 @@ anchors, which is - in the nature of Lego-ALMA - not feasible. The tags may ther
 be lowered from that plane such, that the audience may just not be in LOS between tags and anchors.
 
 The position of the anchor points can be determined automatically. 
-Proceed to "Network Details" and select Auto Positioning on list of the vertical ellipsis. Click
+Proceed to "Network Details" and select "Auto Positioning" on the vertical ellipsis. Click
 "Measure" and, if successful, "Save". If unsuccesful, repeat "Measure". We are done. 
 On "Grid" you can verify the current UWB setup (in units of meter) for 
 achors and tags. Before you call the application on Lego-ALMA you will have to leave the Android App, 
